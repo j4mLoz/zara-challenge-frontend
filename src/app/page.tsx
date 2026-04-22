@@ -19,7 +19,7 @@ export default function Home() {
       {/* Contador de resultados */}
       <p>{products.length} results</p>
 
-      {loading && <div>Loading...</div>}
+      {loading && <div>Loading......</div>}
       {error && <div>{error}</div>}
 
       {!loading && products.length === 0 && <div>No products found</div>}
