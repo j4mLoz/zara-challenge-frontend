@@ -1,34 +1,24 @@
 'use client';
 
 import { useProducts } from '@/hooks/useProducts';
+import { Navbar } from '@/components/layout/Navbar';
+import { ProductGrid } from '@/components/product/ProductGrid';
+import { SearchWrapper } from '@/components/layout/SearchWrapper';
 
-// ejecutamos el hook para obtener productos, loading, error y funciones de búsqueda
+// Página principal — orquesta Navbar + Search + Grid
+// El Container fue eliminado: cada sección gestiona su propio padding (Figma)
 export default function Home() {
   const { products, loading, error, search, setSearch } = useProducts();
 
   return (
-    <div>
-      {/* Input controlado para realizar búsquedas */}
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+    <main>
+      <Navbar />
+      <SearchWrapper
+        search={search}
+        setSearch={setSearch}
+        resultsCount={products.length}
       />
-
-      {/* Contador de resultados */}
-      <p>{products.length} results</p>
-
-      {loading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-
-      {!loading && products.length === 0 && <div>No products found</div>}
-
-      {products.map((product) => (
-        <div key={product._uid}>
-          {product.name} - {product.brand}
-        </div>
-      ))}
-    </div>
+      <ProductGrid products={products} />
+    </main>
   );
 }

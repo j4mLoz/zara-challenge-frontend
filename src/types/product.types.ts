@@ -12,3 +12,26 @@ export type Product = {
 // Respuesta de listado
 // Algunas APIs devuelven array directo, otras envuelven en { items: [] }
 export type ProductsResponse = Product[];
+
+// Opciones de color
+export type ColorOption = {
+  name: string;
+  hexCode: string;
+  imageUrl: string;
+};
+
+// Opciones de almacenamiento
+export type StorageOption = {
+  capacity: string;
+  price: number;
+};
+
+// Detalle completo del producto
+export type ProductDetail = {
+  id: string;
+  brand: string;
+  name: string;
+  basePrice: number;
+  colorOptions: ColorOption[];
+  storageOptions: StorageOption[];
+};

@@ -1,5 +1,5 @@
 import { apiClient } from './apiClient';
-import type { ProductsResponse } from '@/types/product.types';
+import type { ProductsResponse, ProductDetail } from '@/types/product.types';
 
 // Obtiene listado inicial
 export const getProducts = async (): Promise<ProductsResponse> => {
@@ -15,7 +15,7 @@ export const searchProducts = async (
   });
 };
 
-// Detalle (lo tiparemos más adelante cuando entremos a detalle)
-export const getProductById = async (id: string) => {
-  return apiClient(`/products/${id}`);
+// 🔥 Detalle tipado correctamente
+export const getProductById = async (id: string): Promise<ProductDetail> => {
+  return apiClient<ProductDetail>(`/products/${id}`);
 };

@@ -1,0 +1,55 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 0.5px solid #000000;
+  border-left: 0.5px solid #000000;
+  margin: 0 100px;
+  box-sizing: border-box;
+}
+
+/* Tablet — 2 columnas */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop — 5 columnas */
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Mobile — sin margen */
+@media (max-width: 767px) {
+  .grid {
+    margin: 0;
+  }
+}
+
+/* Celda del grid — position relative para contener el telón */
+.gridItem {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Telón — sube desde abajo, cubre toda la celda 344×344
+   Semitransparente para que el teléfono se siga viendo */
+.gridItem__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover — telón sube y cubre toda la celda */
+.gridItem:hover .gridItem__overlay {
+  transform: translateY(0);
+}

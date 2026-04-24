@@ -1,0 +1,7 @@
+/* Wrapper principal de layout
+   Figma: padding horizontal 100px, ancho relleno (full width) */
+.container {
+  width: 100%;
+  padding: 0 100px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,83 @@
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-right: 0.5px solid #000000;
+  border-bottom: 0.5px solid #000000;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.card__imageWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__image {
+  max-width: 75%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+/* Sin overlay, sin hover — la card es estática */
+
+.card__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 31px;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card__brand {
+  font-size: 10px;
+  font-weight: 400;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.card__price {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .card__image {
+    max-width: 65%;
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .card__image {
+    max-width: 60%;
+  }
+}
